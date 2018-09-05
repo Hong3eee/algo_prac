@@ -18,7 +18,7 @@ public class Main {
       n = in.nextInt();
       k = in.nextInt();
       mom = new Stack<body>();
-      mom.add(new body(1,1,0));
+      mom.add(new body(1,1));
       map = new int[n+1][n+1];
       map2 =  new int[n+1][n+1];
       map2[1][1]=-1;
@@ -49,7 +49,7 @@ public class Main {
          if(head_r>n||head_c>n||head_r<=0||head_c<=0||(map2[head_r][head_c]==time-1&time!=1))
             break;
          if(map[head_r][head_c]==2){
-            mom.add(new body(head_r,head_c,head_d));
+            mom.add(new body(head_r,head_c));
             map[head_r][head_c] =0;
          }
          else{
@@ -57,14 +57,11 @@ public class Main {
                for(int i =0 ; i<mom.size()-1;i++){
                   mom.get(i).row = mom.get(i+1).row;
                   mom.get(i).col = mom.get(i+1).col;
-                  mom.get(i).direction =  mom.get(i+1).direction;      
                }
             mom.get(mom.size()-1).row = head_r;
             mom.get(mom.size()-1).col = head_c;
-            mom.get(mom.size()-1).direction = head_d;
          }   
          for(int i =mom.size()-1 ; i>=0;i--){
-
             if(map2[mom.get(i).row][mom.get(i).col]==time)
             {
                System.out.println(time);
@@ -104,16 +101,14 @@ public class Main {
          if(tmp==null)
             if(!q.isEmpty())
                tmp =  q.poll();   
-
       }
       System.out.println(time);
    }
    class body{
-      int row,col,direction;
-      body(int row,int col,int direction){
+      int row,col;
+      body(int row,int col){
          this.row = row;
          this.col = col;
-         this.direction = direction;
       }
    }
    class li{
