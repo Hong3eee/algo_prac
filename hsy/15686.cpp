@@ -1,8 +1,8 @@
 #include<iostream>
 #include<vector>
 
-
 using namespace std;
+
 void dfs(int start, int depth);
 int N, M;
 int map[51][51];
@@ -27,30 +27,11 @@ int main(void)
 			if (map[i][j] == 2)
 				c.push_back(make_pair(i, j));
 		}
-	/*
-	for (int i = 1; i <= N; i++)
-	{
-		cout << endl;
-		for (int j = 1; j <= N; j++)
-			cout << map[i][j] << " ";
-	}
-	*/
 
 	for(int i=0; i< h.size(); i++)
 		for (int j = 0; j < c.size(); j++)
 			dis[i][j] = abs(h[i].first - c[j].first) + abs(h[i].second - c[j].second);
 
-
-	/*
-	for (int i = 0; i < h.size(); i++)
-	{
-		cout << endl;
-		for (int j = 0; j < c.size(); j++)
-		{
-			cout << dis[i][j] << " ";
-		}
-	}
-	*/
 	dfs(0, 0);
 
 	cout << result << endl;
