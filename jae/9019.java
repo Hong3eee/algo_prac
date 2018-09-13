@@ -7,12 +7,11 @@ public class Main {
 	int a,b;
 	Queue<node> q ;
 	int visited[];
-	char p[];
+	
 	Main(){
 		Scanner in = new Scanner (System.in);
 		t=  in.nextInt();
 		for(int i = 0 ; i <t; i++) {
-			p = new char[100001];
 			visited = new int [10001];
 			q = new  LinkedList();
 			a = in.nextInt();
@@ -39,23 +38,18 @@ public class Main {
 				if(visited[dou]==0) {
 					q.add(new node(dou,tmp.str+'D'));
 					visited[dou]=tmp.v;
-					p[dou]='D';
 				}
 				if(visited[sub]==0) {
 					q.add(new node(sub,tmp.str+'S'));
 					visited[sub]=tmp.v;
-					p[sub]='S';
 				}
 				if(visited[left]==0) {
 					q.add(new node(left,tmp.str+'L'));
-					visited[left]=tmp.v;
-					p[left]='L';
-
+					visited[left]=tmp.v;	
 				}
 				if(visited[right]==0) {
 					q.add(new node(right,tmp.str+'R'));
 					visited[right]=tmp.v;
-					p[right]='R';		
 				}
 			}
 		}
