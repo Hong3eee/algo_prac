@@ -36,16 +36,14 @@ public class Main {
 		switch(tmp.t){
 		case 1:
 			for(int i =0;i <4; i ++) {
-				for(int j = 1; j < n+1; j ++) 
-					maps[j] =Arrays.copyOf(tmp_map[j], m+1);
+				copy_array(maps,tmp_map);
 				check(tmp.i,tmp.j,i,maps);
 				dfs(num+1,maps);
 			}
 			break;
 		case 2:
 			for(int i =0;i<2; i++) {
-				for(int j = 1; j < n+1; j ++) 
-					maps[j] =Arrays.copyOf(tmp_map[j], m+1);
+				copy_array(maps,tmp_map);
 				check(tmp.i,tmp.j,i,maps);
 				check(tmp.i,tmp.j,i+2,maps);
 				dfs(num+1,maps);	
@@ -53,8 +51,7 @@ public class Main {
 			break;
 		case 3:
 			for(int i =0;i <4; i ++) {
-				for(int j = 1; j < n+1; j ++) 
-					maps[j] =Arrays.copyOf(tmp_map[j], m+1);
+				copy_array(maps,tmp_map);
 				check(tmp.i,tmp.j,(i)%4,maps);
 				check(tmp.i,tmp.j,(i+1)%4,maps);
 				dfs(num+1,maps);
@@ -62,8 +59,7 @@ public class Main {
 			break;
 		case 4:
 			for(int i =0;i <4; i ++) {
-				for(int j = 1; j < n+1; j ++) 
-					maps[j] =Arrays.copyOf(tmp_map[j], m+1);
+				copy_array(maps,tmp_map);
 				check(tmp.i,tmp.j,(i)%4,maps);
 				check(tmp.i,tmp.j,(i+1)%4,maps);
 				check(tmp.i,tmp.j,(i+2)%4,maps);
@@ -71,8 +67,7 @@ public class Main {
 			}
 			break;
 		case 5:
-			for(int j = 1; j < n+1; j ++) 
-				maps[j] =Arrays.copyOf(tmp_map[j], m+1);
+			copy_array(maps,tmp_map);
 			check(tmp.i,tmp.j,0,maps);
 			check(tmp.i,tmp.j,1,maps);
 			check(tmp.i,tmp.j,2,maps);
@@ -80,6 +75,12 @@ public class Main {
 			dfs(num+1,maps);
 			break;
 		}
+	}
+	public void copy_array(int maps[][],int copy_map[][]) {
+		for(int i =1;i<n+1;i++)
+			for(int j =1;j<m+1;j++)
+				maps[i][j]=copy_map[i][j];
+		
 	}
 	public void check(int i , int j , int d,int maps[][]) {
 		switch(d) {
